@@ -9,5 +9,4 @@ class Solution:
             length = len(orig)
         rev = orig[::-1]
         newval = int(rev, 2)
-        print "orig dec, orig bin, rev bin, rec dec: ", n, orig, rev, newval
         return newval
