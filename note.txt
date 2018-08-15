@@ -1,0 +1,1 @@
+All solutions worked out by me. Resemblance to other published solutions is inevitable on occaison, especially for simpler problems. I only use my own ideas, although sometimes I google for help on purely syntax issues.
