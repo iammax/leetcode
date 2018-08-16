@@ -1,10 +1,26 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        solution = None
+        orignums = nums
+        nums = sorted(nums)
         numlength = len(nums)
         for q in range (0, numlength-1):
-            for r in range (q+1, numlength):
-                if nums[q] + nums[r] == target:
-                    solution = [q, r]
-                    break
-        return solution
+            qnum = nums[q]
+            want = target - qnum
+            rcount = q+1
+            while rcount < numlength:
+                rnum = nums[rcount]
+                if  rnum == want:
+                    if qnum != rnum:
+                        return [orignums.index(qnum), orignums.index(rnum)]
+                    else:
+                        qindex = orignums.index(qnum)
+                        dim = len(orignums)
+                        newrcount = qindex+1
+                        while True:
+                            if orignums[newrcount] == rnum:
+                                return [qindex, newrcount]
+                            newrcount += 1
+                elif rnum > want:
+                    rcount = numlength
+                rcount += 1
+        
