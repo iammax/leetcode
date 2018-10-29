@@ -15,17 +15,13 @@ class Solution(object):
         return counter
             
 def parse(local):
-    output = ''
-    counter = 0
     dim = len(local)
-    plus = False
-    while counter < dim and not plus:
+    counter = 0
+    while counter < dim:
         char = local[counter]
-        if char == '.':
-            pass
-        elif char == '+':
-            plus = True
-        else:
-            output += char
+        if char == '+':
+            return local[:counter]
+        elif char == '.':
+            local = local[:counter] + local[counter+1:]
         counter += 1
-    return output
+    return local
