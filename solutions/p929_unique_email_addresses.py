@@ -1,18 +1,13 @@
 class Solution(object):
     def numUniqueEmails(self, emails):
-        domains = {}
+        domains = []
         for candidate in emails:
             local, domain = candidate.split('@')
-            if domain not in domains:
-                domains[domain] = [parse(local)]
-            else:
-                parsed = parse(local)
-                if parsed not in domains[domain]:
-                    domains[domain].append(parsed)
-        counter = 0
-        for domain in domains:
-            counter += len(domains[domain])
-        return counter
+            parsed = parse(local)
+            total = parsed + domain
+            if total not in domains:
+                domains.append(total)
+        return len(domains)
             
 def parse(local):
     dim = len(local)
