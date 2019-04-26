@@ -8,12 +8,9 @@ class Solution(object):
                     celldict[dist].append(j + (i*R))
                 except:
                     celldict[dist] = [j + (i*R)]
-        print celldict
         out = []
         for cell in celldict:
             points = celldict[cell]
             for point in points:
-                y = point/R
-                x = point%R
-                out.append([x,y])
+                out.append([point%R, point/R])
         return out
